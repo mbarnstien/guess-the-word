@@ -8,7 +8,7 @@ const messages = document.querySelector(".message");
 const playAgainButton = document.querySelector(".play-again");
 
 let word = "magnolia";
-const guessedLetters = [];
+let guessedLetters = [];
 let remainingGuesses = 8;
 
 const getWord = async function () {
@@ -118,5 +118,28 @@ const checkIfWin = function () {
     if (word.toUpperCase() === inProgress.innerText) {
         messages.classList.add("win");
         messages.innerHTML = `<p class="highlight"> You guessed correctly! Woohoo! </p>`;
+        startOver();
     }
 };
+
+const startOver = function () {
+    guessButton.classList.add("hide");
+    remaining.classList.add("hide");
+    letters.classList.add("hide");
+    playAgainButton.classList.remove("hide");
+}
+
+playAgainButton.addEventListener("click", function (e) {
+    messages.classList.remove("win");
+    remainingGuesses = 8;
+    guessedLetters = [];
+    messages.innerText = "";
+    letters.innerHTML = "";
+    spanGuesses.innerText = `${remainingGuesses} guesses`;
+    getWord();
+
+    guessButton.classList.remove("hide");
+    remaining.classList.remove("hide");
+    letters.classList.remove("hide");
+    playAgainButton.classList.add("hide");
+});
