@@ -107,12 +107,13 @@ const guessCountdown = function (guess) {
 
     if (remainingGuesses === 0) {
         messages.innerHTML = `You have no guesses remaining! Boo~ The word was <span class="highlight">${word}</span>.`
+        spanGuesses.innerText = `${remainingGuesses} guesses`;
     } else if (remainingGuesses === 1) {
-        messages.innerHTML = `Only one guess left!`
-        spanGuesses.innerText = `${remainingGuesses} guess`
+        messages.innerHTML = `Only one guess left!`;
+        spanGuesses.innerText = `${remainingGuesses} guess`;
     } else {
-        spanGuesses.innerText = `${remainingGuesses} guesses`
-    }
+        spanGuesses.innerText = `${remainingGuesses} guesses`;
+    };
 };
 
 const checkIfWin = function () {
