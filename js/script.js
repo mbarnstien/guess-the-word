@@ -108,6 +108,7 @@ const guessCountdown = function (guess) {
     if (remainingGuesses === 0) {
         messages.innerHTML = `You have no guesses remaining! Boo~ The word was <span class="highlight">${word}</span>.`
         spanGuesses.innerText = `${remainingGuesses} guesses`
+        startOver();
     } else if (remainingGuesses === 1) {
         spanGuesses.innerText = `${remainingGuesses} guess`
     } else {
